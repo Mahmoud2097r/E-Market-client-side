@@ -135,7 +135,7 @@ function Reviews({ product_id, ratingValue, setRatingValue }: ReviewProps) {
                                 <Stack spacing={2} direction="row" justifyContent='space-between'>
                                     <Stack spacing={2} direction="row" alignItems="center">
                                         <Link href={`/profile/${review.user._id}`}>
-                                            <Avatar src={review.user?.image?.path} alt="user's profile's image" />
+                                            <Avatar src={review.user?.image} alt="user's profile's image" />
                                         </Link>
                                         <Typography noWrap>{review.body}</Typography>
                                     </Stack>
