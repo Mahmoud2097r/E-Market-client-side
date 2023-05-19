@@ -57,8 +57,8 @@ function Reviews({ product_id, ratingValue, setRatingValue }: ReviewProps) {
 
 
     const handleDelete = (review_id: string) => {
-            setReviews((prevReviews: Review[]) => {
-                return prevReviews.filter((review: Review): Review | null => {
+            setReviews((prevReviews: any) => {
+                return prevReviews.filter((review: any) => {
                     if (review._id !== review_id) return review
                     return null
                 })
@@ -68,16 +68,16 @@ function Reviews({ product_id, ratingValue, setRatingValue }: ReviewProps) {
     }
 
     const handleEditing = (review_id: string, body?: string, rating?: number) => {
-        setReviews((prevReviews: Review[]): Review[] => {
-            return prevReviews.map((review: Review): Review => {
+        setReviews((prevReviews: any) => {
+            return prevReviews.map((review: any) => {
                 if (review._id === review_id) return { ...review, isEditing: !review.isEditing }
                 return review;
             })
         })
 
         if (body) {
-            setReviews((prevReviews: Review[]): Review[] => {
-                return prevReviews.map((review: Review): Review => {
+            setReviews((prevReviews: any) => {
+                return prevReviews.map((review: any) => {
                     if (review._id === review_id) return { ...review, body }
                     return review;
                 })
@@ -85,8 +85,8 @@ function Reviews({ product_id, ratingValue, setRatingValue }: ReviewProps) {
         }
 
         if (rating) {
-            setReviews((prevReviews: Review[]): Review[] => {
-                return prevReviews.map((review: Review): Review => {
+            setReviews((prevReviews: any) => {
+                return prevReviews.map((review: any) => {
                     if (review._id === review_id) return { ...review, rating }
                     return review;
                 })
@@ -95,7 +95,7 @@ function Reviews({ product_id, ratingValue, setRatingValue }: ReviewProps) {
     }
 
 
-    const haveReviewed = reviews?.filter((review: Review) => (user?._id === review.user._id)).length
+    const haveReviewed = reviews?.filter((review: any) => (user?._id === review.user._id)).length
 
     return (
         <>
@@ -135,7 +135,7 @@ function Reviews({ product_id, ratingValue, setRatingValue }: ReviewProps) {
                                 <Stack spacing={2} direction="row" justifyContent='space-between'>
                                     <Stack spacing={2} direction="row" alignItems="center">
                                         <Link href={`/profile/${review.user._id}`}>
-                                            <Avatar src={review.user!.image!.path} alt="user's profile's image" />
+                                            <Avatar src={review.user?.image?.path} alt="user's profile's image" />
                                         </Link>
                                         <Typography noWrap>{review.body}</Typography>
                                     </Stack>
