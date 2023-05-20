@@ -121,7 +121,7 @@ function ShowProduct() {
 								{product?.name}
 							</Typography>
 							<Typography variant='h4' ml={7}>
-								{formatCurrency(Number(product?.price))}
+								{formatCurrency(Number(product!.price))}
 							</Typography>
 							<Typography variant='h4' ml={7}>
 								{product?.stock} in Stock
