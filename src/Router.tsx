@@ -27,36 +27,36 @@ export const Router = createBrowserRouter([
 				children: [
 					{ index: true, element: <Home /> },
 					{
-						path: 'products/:product_id',
+						path: '/products/:product_id',
 						element: <ShowProduct />,
 					},
 					{
-						path: 'products/new',
+						path: '/products/new',
 						element: <NewProductForm />,
 					},
 				],
 			},
 			{
 				element: <AuthLayout />,
-				path: 'register',
+				path: '/register',
 				children: [
 					{
 						index: true,
 						element: <Register />,
 					},
-					{ path: 'login', element: <Login /> },
+					{ path: '/login', element: <Login /> },
 				],
 			},
 			{
-				path: 'profile',
+				path: '/profile',
 				element: <ProfileLayout />,
 				children: [
 					{
-						path: ':profile_id',
+						path: '/:profile_id',
 						element: <Dashboard />,
 					},
 					{
-						path: ':profile_id/edit',
+						path: '/:profile_id/edit',
 						element: <UpdateUserInfoForm />,
 					},
 				],
